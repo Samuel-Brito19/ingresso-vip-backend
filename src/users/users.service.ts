@@ -11,4 +11,8 @@ export class UsersService {
   async getUsers() {
     return this.database.query.users.findMany();
   }
+
+  async createUser(user: typeof schema.users.$inferInsert) {
+    await this.database.insert(schema.users).values(user);
+  }
 }
