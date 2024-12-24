@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { TicketsModule } from './tickets/tickets.module';
 import { EventModule } from './event/event.module';
+import { LocalModule } from './local/local.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { EventModule } from './event/event.module';
     UsersModule,
     TicketsModule,
     EventModule,
+    LocalModule,
   ],
   controllers: [],
 })
