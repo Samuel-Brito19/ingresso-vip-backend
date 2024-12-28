@@ -1,12 +1,5 @@
 import { relations } from 'drizzle-orm';
-import {
-  date,
-  integer,
-  pgTable,
-  serial,
-  text,
-  timestamp,
-} from 'drizzle-orm/pg-core';
+import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 import { event } from 'src/event/schema';
 
 export const tickets = pgTable('tickets', {
