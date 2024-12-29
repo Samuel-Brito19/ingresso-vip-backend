@@ -7,6 +7,7 @@ import { EventModule } from './event/event.module';
 import { LocalModule } from './local/local.module';
 import { CategoryModule } from './category/category.module';
 import { PurchaseModule } from './purchase/purchase.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PurchaseModule } from './purchase/purchase.module';
     LocalModule,
     CategoryModule,
     PurchaseModule,
+    AuthModule,
   ],
   controllers: [],
 })
