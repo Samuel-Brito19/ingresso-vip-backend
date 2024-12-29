@@ -17,9 +17,9 @@ export class UsersService {
     await this.database.insert(schema.users).values(user);
   }
 
-  async findUser(id: number) {
+  async findUser(name: string) {
     return this.database.query.users.findFirst({
-      where: eq(schema.users.id, id),
+      where: eq(schema.users.name, name),
     });
   }
 }
