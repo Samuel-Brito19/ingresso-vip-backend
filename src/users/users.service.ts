@@ -10,7 +10,13 @@ export class UsersService {
   ) {}
 
   async getUsers() {
-    return this.database.query.users.findMany();
+    return this.database.query.users.findMany({
+      columns: {
+        name: true,
+        email: true,
+        role: true,
+      },
+    });
   }
 
   async createUser(user: typeof schema.users.$inferInsert) {
