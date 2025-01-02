@@ -3,5 +3,5 @@ export class CreateLocalDTO {
   city: string;
   street: string;
   neighborhood: string;
-  number: number;
+  number: string;
 }

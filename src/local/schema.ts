@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm';
-import { integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text } from 'drizzle-orm/pg-core';
 import { event } from 'src/event/schema';
 
 export const local = pgTable('local', {
@@ -10,3 +10,7 @@ export const local = pgTable('local', {
   neighborhood: text().notNull(),
   number: text().notNull(),
 });
+
+export const localRelations = relations(local, ({ many }) => ({
+  events: many(event),
+}));
