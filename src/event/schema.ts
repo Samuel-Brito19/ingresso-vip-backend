@@ -17,6 +17,7 @@ export const event = pgTable('event', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   description: text('description').notNull(),
+  //change both to datetime
   start_date: timestamp(),
   end_date: timestamp(),
   status: eventStatus('eventStatus'),
