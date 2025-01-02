@@ -9,9 +9,4 @@ export const local = pgTable('local', {
   street: text().notNull(),
   neighborhood: text().notNull(),
   number: text().notNull(),
-  event_id: integer('event_id').references(() => event.id),
 });
-
-export const localRelations = relations(local, ({ many }) => ({
-  event: many(event),
-}));

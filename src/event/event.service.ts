@@ -10,7 +10,10 @@ export class EventService {
   ) {}
 
   async getEvents() {
-    return this.database.query.event.findMany();
+    console.log(this.database.query.event);
+    return this.database.query.event.findMany({
+      columns: {},
+    });
   }
 
   async createEvent(event: typeof schema.event.$inferInsert) {

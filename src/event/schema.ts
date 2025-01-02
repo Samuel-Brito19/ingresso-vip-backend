@@ -18,8 +18,8 @@ export const event = pgTable('event', {
   name: text('name').notNull(),
   description: text('description').notNull(),
   //change both to datetime
-  start_date: timestamp(),
-  end_date: timestamp(),
+  start_date: timestamp({ mode: 'string' }),
+  end_date: timestamp({ mode: 'string' }),
   status: eventStatus('eventStatus'),
   total_capacity: integer('total_capacity').notNull(),
   local_id: integer('local_id').references(() => local.id),
@@ -31,6 +31,9 @@ export const eventRelations = relations(event, ({ one, many }) => ({
     fields: [event.local_id],
     references: [local.id],
   }),
-  category: many(category),
+  category: one(category, {
+    fields: [event.category_id],
+    references: [category.id],
+  }),
   ticket: many(tickets),
 }));
