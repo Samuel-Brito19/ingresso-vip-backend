@@ -10,7 +10,13 @@ export class CategoryService {
   ) {}
 
   async findCategory() {
-    return this.database.query.category.findMany();
+    return this.database.query.category.findMany({
+      columns: {
+        id: true,
+        name: true,
+        description: true,
+      },
+    });
   }
 
   async createCategory(category: typeof schema.category.$inferInsert) {
