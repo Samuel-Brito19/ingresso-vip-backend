@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TicketsService } from './tickets.service';
 import { CreateTicketDTO } from './dto/create-ticket-dto';
 
@@ -6,11 +6,12 @@ import { CreateTicketDTO } from './dto/create-ticket-dto';
 export class TicketsController {
   constructor(private readonly ticketsService: TicketsService) {}
 
-  @Get(':event_id')
-  async findTickets(@Param() param: number): Promise<any> {
+  @Get(':id')
+  async findTickets(@Param('id') param: number): Promise<any> {
     return this.ticketsService.getTickets(param);
   }
 
+  @Post()
   async createTicket(@Body() request: CreateTicketDTO) {
     return this.ticketsService.createTicket(request);
   }

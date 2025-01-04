@@ -6,7 +6,7 @@ export const tickets = pgTable('tickets', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
   price: integer('price').notNull(),
-  creation_date: timestamp('creation_date', { mode: 'date' }).defaultNow(),
+  creation_date: timestamp('creation_date', { mode: 'string' }).defaultNow(),
   qtd: integer('qtd').notNull(),
   event_id: integer('event_id').references(() => event.id),
 });

@@ -15,10 +15,10 @@ export class TicketsService {
     return ticket;
   }
 
-  async getTickets(id: number) {
+  async getTickets(event_id: number) {
     return this.database
       .select()
       .from(schema.tickets)
-      .where(eq(schema.tickets.event_id, id));
+      .where(eq(schema.tickets.event_id, event_id));
   }
 }
